@@ -2,24 +2,18 @@
   <h2>Coche</h2>
     <p>Marca: {{brand}}</p>
     <p>Modelo: {{model}}</p>
-    <p>Las potencias para transitar en zona urbana deben ser menor a 300CV</p>
+    <p>Potencias:</p>
     <ul>
         <template v-for= "(power, index) in powers" :key="index">
-            <li v-if="power<200">
-            {{power}}
-            </li>
+            <li v-if="power<100">Zona Rural: {{power}}</li>
+            <li v-else-if="power===100">Zona Urbana: {{power}}</li>
+            <li v-else>Zona de carretera: {{power}}</li>
         </template>
 
     </ul>
-    <p>Las potencias para transitar en carretera deben ser igual o mayor a 200CV</p>
-    <ul>
-        <template v-for= "(power, index) in powers" :key="index">
-            <li v-if="power>=200">
-            {{power}}
-            </li>
-        </template>
+    
 
-    </ul>
+
 </template>
 
 <script>
